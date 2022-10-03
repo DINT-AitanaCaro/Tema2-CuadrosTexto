@@ -23,33 +23,31 @@ namespace Tema2_CuadrosTexto
         public MainWindow()
         {
             InitializeComponent();
+            nombreTextBox.Tag = ayudaNombreTextBlock;
+            apellidoTextBox.Tag = ayudaApellidoTextBlock;
+            edadTextBox.Tag = ayudaEdadTextBlock;
         }
 
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        private void NombreApellido_TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             TextBox t = (TextBox)sender;
-            string tag = (string)t.Tag;
+            TextBlock tbl = (TextBlock)t.Tag;
             if (e.Key == Key.F1)
             {
-                if (tag.Equals("nombre"))
-                {
-                    if (ayudaNombreTextBlock.IsVisible)
-                        ayudaNombreTextBlock.Visibility = Visibility.Hidden;
-                    else
-                        ayudaNombreTextBlock.Visibility = Visibility.Visible;
-                }
-                else if (tag.Equals("apellido"))
-                {
-                    if (ayudaApellidoTextBlock.IsVisible)
-                        ayudaApellidoTextBlock.Visibility = Visibility.Hidden;
-                    else
-                        ayudaApellidoTextBlock.Visibility = Visibility.Visible;
-                }
+                if (tbl.IsVisible)
+                    tbl.Visibility = Visibility.Hidden;
+                else
+                    tbl.Visibility = Visibility.Visible;
             }
-            else if(e.Key == Key.F2 && t.Tag.Equals("edad"))
+        }
+        private void Edad_TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            TextBlock tbl = (TextBlock)t.Tag;
+            if (e.Key == Key.F2)
             {
-                if (int.TryParse(edadTextBox.Text,out _)) ayudaEdadTextBlock.Visibility = Visibility.Hidden;
-                else ayudaEdadTextBlock.Visibility = Visibility.Visible;
+                if (int.TryParse(edadTextBox.Text, out _)) tbl.Visibility = Visibility.Hidden;
+                else tbl.Visibility = Visibility.Visible;
             }
         }
     }
