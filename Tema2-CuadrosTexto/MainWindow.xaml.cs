@@ -38,7 +38,7 @@ namespace Tema2_CuadrosTexto
                     else
                         ayudaNombreTextBlock.Visibility = Visibility.Visible;
                 }
-                else
+                else if (tag.Equals("apellido"))
                 {
                     if (ayudaApellidoTextBlock.IsVisible)
                         ayudaApellidoTextBlock.Visibility = Visibility.Hidden;
